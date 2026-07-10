@@ -170,45 +170,99 @@
 }
 
 /* Responzivita */
+/* ============================================================
+   HERO — ULTRA MOBILNÍ OPTIMALIZACE
+   ============================================================ */
+
+/* Tablet a menší — obrázek jako pozadí za textem, sloupec */
 @media (max-width: 1024px) {
-  .hero-vrstva-obraz img { width: 100%; opacity: 0.42; object-position: center; }
+  .hero { min-height: auto; }
+  .hero-vnitrek {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+  }
+  .hero-vrstva-obraz img {
+    width: 100%;
+    opacity: 0.5;
+    object-position: center top;
+  }
+  /* gradient: nahoře vidět scéna, dole tmavší pro čitelnost textu */
   .hero-preliv {
-    background: linear-gradient(180deg, rgba(10,14,26,0.72) 0%, rgba(10,14,26,0.88) 100%);
+    background: linear-gradient(180deg,
+      rgba(10, 14, 26, 0.4) 0%,
+      rgba(10, 14, 26, 0.68) 38%,
+      rgba(10, 14, 26, 0.9) 68%,
+      var(--pozadi) 100%);
   }
   .hero-karta { display: none; }
   .hero-staty { max-width: 100%; }
-  .hero-text { max-width: 100%; }
+  .hero-text { max-width: 100%; width: 100%; }
 }
 
+/* Velký mobil */
 @media (max-width: 768px) {
-  .hero { min-height: auto; padding-top: 74px; }
-  .hero-vnitrek { padding-top: 48px; padding-bottom: 48px; }
-  .hero-nadpis { font-size: clamp(30px, 8vw, 44px); margin-bottom: 18px; }
-  .hero-popis { font-size: 16px; margin-bottom: 28px; }
-  .hero-tlacitka { margin-bottom: 44px; }
-  .hero-staty { gap: 20px; }
-  .hero-stat-cislo { font-size: 20px; }
-}
-
-@media (max-width: 640px) {
-  .hero-vnitrek { padding-top: 40px; padding-bottom: 40px; }
-  .hero-nadpis { font-size: 32px; line-height: 1.1; margin-bottom: 16px; }
-  .hero-popis { font-size: 15px; margin-bottom: 26px; }
+  .hero { padding-top: 66px; }
+  .hero-vnitrek { padding-top: 36px; padding-bottom: 44px; }
+  .hero-eyebrow { font-size: 11.5px; letter-spacing: 0.14em; margin-bottom: 14px; }
+  .hero-nadpis {
+    font-size: clamp(28px, 8.5vw, 42px);
+    line-height: 1.12;
+    margin-bottom: 16px;
+  }
+  .hero-popis {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+    max-width: 100%;
+  }
   .hero-popis br { display: none; }
-  .hero-tlacitka { flex-direction: column; gap: 12px; margin-bottom: 40px; }
-  .hero-tlacitka .btn { width: 100%; justify-content: center; }
-  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 18px 16px; }
-  .hero-stat { gap: 10px; }
-  .hero-stat-ikona { width: 40px; height: 40px; }
-  .hero-stat-cislo { font-size: 19px; }
-  .hero-stat-popis { font-size: 11px; }
+  .hero-tlacitka { margin-bottom: 34px; gap: 12px; }
+  .hero-staty {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 14px;
+    max-width: 100%;
+  }
+  .hero-stat { gap: 11px; }
+  .hero-stat-cislo { font-size: 21px; }
+  .hero-stat-popis { font-size: 12px; }
 }
 
-@media (max-width: 360px) {
-  .hero-nadpis { font-size: 28px; }
-  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
-  .hero-stat-ikona { width: 36px; height: 36px; }
+/* Střední mobil */
+@media (max-width: 560px) {
+  .hero-vnitrek { padding-top: 32px; padding-bottom: 40px; }
+  .hero-nadpis { font-size: clamp(26px, 8vw, 34px); line-height: 1.14; margin-bottom: 14px; }
+  .hero-popis { font-size: 14.5px; margin-bottom: 24px; }
+  .hero-tlacitka { flex-direction: column; gap: 11px; margin-bottom: 32px; }
+  .hero-tlacitka .btn { width: 100%; justify-content: center; padding: 13px 20px; }
+  .hero-staty { gap: 16px 14px; }
+  .hero-stat { gap: 10px; }
+  .hero-stat-ikona { width: 38px; height: 38px; }
+  .hero-stat-ikona svg { width: 19px; height: 19px; }
+  .hero-stat-cislo { font-size: 19px; }
+  .hero-stat-popis { font-size: 11px; line-height: 1.25; }
+}
+
+/* Malý mobil */
+@media (max-width: 380px) {
+  .hero-vnitrek { padding-top: 28px; padding-bottom: 36px; }
+  .hero-nadpis { font-size: 25px; line-height: 1.16; }
+  .hero-popis { font-size: 14px; margin-bottom: 22px; }
+  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 15px 12px; }
+  .hero-stat { gap: 9px; }
+  .hero-stat-ikona { width: 36px; height: 36px; border-radius: 9px; }
+  .hero-stat-ikona svg { width: 18px; height: 18px; }
+  .hero-stat-cislo { font-size: 18px; }
+  .hero-stat-popis { font-size: 10.5px; }
+}
+
+/* Velmi malý mobil */
+@media (max-width: 340px) {
+  .hero-nadpis { font-size: 23px; }
+  .hero-stat-ikona { width: 34px; height: 34px; }
   .hero-stat-cislo { font-size: 17px; }
+  .hero-stat-popis { font-size: 10px; }
 }
 
 /* ============================================================

@@ -21,13 +21,11 @@ export default function KurzorZamerovac() {
     setAktivni(true);
     document.body.classList.add("ma-vlastni-kurzor");
 
-    let rafId = 0;
-    let cilX = window.innerWidth / 2, cilY = window.innerHeight / 2;
-    let aktX = cilX, aktY = cilY;
-
     function onMove(e: MouseEvent) {
-      cilX = e.clientX;
-      cilY = e.clientY;
+      // kurzor přesně na pozici myši — okamžitě, žádné dojíždění
+      if (kurzorRef.current) {
+        kurzorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      }
       // detekce interaktivního prvku pod kurzorem
       const el = e.target as HTMLElement;
       const interaktivni = el.closest('a, button, input, textarea, [role="button"], .tilt, .ck-switch');
@@ -36,26 +34,14 @@ export default function KurzorZamerovac() {
     function onDown() { setKlik(true); }
     function onUp() { setKlik(false); }
 
-    function tik() {
-      // plynulé dobíhání
-      aktX += (cilX - aktX) * 0.2;
-      aktY += (cilY - aktY) * 0.2;
-      if (kurzorRef.current) {
-        kurzorRef.current.style.transform = `translate3d(${aktX}px, ${aktY}px, 0) translate(-50%, -50%)`;
-      }
-      rafId = requestAnimationFrame(tik);
-    }
-
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mousedown", onDown);
     window.addEventListener("mouseup", onUp);
-    rafId = requestAnimationFrame(tik);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
-      cancelAnimationFrame(rafId);
       document.body.classList.remove("ma-vlastni-kurzor");
     };
   }, []);
