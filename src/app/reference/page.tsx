@@ -39,7 +39,7 @@ const REFERENCE = [
 const STATY = [
   { cislo: "500+", popis: "Spokojených klientů" },
   { cislo: "1000+", popis: "Úspěšných akcí" },
-  { cislo: "15+", popis: "Let na trhu" },
+  { cislo: "5+", popis: "Let na trhu" },
   { cislo: "24/7", popis: "Nonstop dostupnost" },
 ];
 

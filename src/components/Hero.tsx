@@ -7,7 +7,7 @@ import "./hero.css";
 
 const STATY = [
   { ikona: IconClock24, cislo: "24/7", popis: "Nonstop dohled" },
-  { ikona: IconAward, cislo: "15+ let", popis: "Zkušeností" },
+  { ikona: IconAward, cislo: "5+ let", popis: "Zkušeností" },
   { ikona: IconShieldCheck, cislo: "500+", popis: "Spokojených klientů" },
   { ikona: IconTargetArrow, cislo: "99,9%", popis: "Úspěšnost zásahů" },
 ];

@@ -90,7 +90,7 @@ export const SLUZBY: Sluzba[] = [
 
 // Statistiky firmy
 export const STATY_FIRMA = [
-  { cislo: "15+", popis: "Let zkušeností" },
+  { cislo: "5+", popis: "Let zkušeností" },
   { cislo: "500+", popis: "Spokojených klientů" },
   { cislo: "24/7", popis: "Nonstop dostupnost" },
   { cislo: "99,9%", popis: "Úspěšnost zásahů" },

@@ -6,7 +6,7 @@ import Cislo from "./Cislo";
 import "./statistiky.css";
 
 const STATY = [
-  { ikona: IconAward, cislo: "15+", popis: "Let zkušeností" },
+  { ikona: IconAward, cislo: "5+", popis: "Let zkušeností" },
   { ikona: IconUsers, cislo: "500+", popis: "Spokojených klientů" },
   { ikona: IconClock24, cislo: "24/7", popis: "Nonstop služba" },
   { ikona: IconTargetArrow, cislo: "99,9%", popis: "Úspěšnost zásahů" },
