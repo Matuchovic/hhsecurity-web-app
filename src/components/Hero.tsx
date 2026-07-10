@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { IconArrowRight, IconBolt, IconClock24, IconAward, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react";
+import Cislo from "./Cislo";
 import "./hero.css";
 
 const STATY = [
@@ -50,7 +51,7 @@ export default function Hero() {
                 <div key={i} className="hero-stat">
                   <div className="hero-stat-ikona"><Ikona size={22} /></div>
                   <div>
-                    <div className="hero-stat-cislo">{s.cislo}</div>
+                    <div className="hero-stat-cislo"><Cislo hodnota={s.cislo} /></div>
                     <div className="hero-stat-popis">{s.popis}</div>
                   </div>
                 </div>

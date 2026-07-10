@@ -7,6 +7,7 @@ import {
   IconArrowRight, IconMovie, IconBuildingSkyscraper,
 } from "@tabler/icons-react";
 import useReveal from "@/components/useReveal";
+import Cislo from "@/components/Cislo";
 import PageHero from "@/components/PageHero";
 import { STATY_FIRMA } from "@/data/sluzby";
 import "@/components/o-nas.css";
@@ -78,7 +79,7 @@ export default function ONasStranka() {
         <div className="obsah on-staty-mrizka">
           {STATY_FIRMA.map((s, i) => (
             <div key={i} className={`on-stat reveal reveal-${(i % 4) + 1}`}>
-              <div className="on-stat-cislo">{s.cislo}</div>
+              <div className="on-stat-cislo"><Cislo hodnota={s.cislo} /></div>
               <div className="on-stat-popis">{s.popis}</div>
             </div>
           ))}

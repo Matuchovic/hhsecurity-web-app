@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { IconStar, IconQuote, IconArrowRight, IconShieldCheck, IconAdjustments, IconLock, IconClock24 } from "@tabler/icons-react";
 import useReveal from "@/components/useReveal";
+import useTilt from "@/components/useTilt";
+import Cislo from "@/components/Cislo";
 import PageHero from "@/components/PageHero";
 import { PROC_HH } from "@/data/sluzby";
 import "./reference.css";
@@ -43,6 +45,7 @@ const STATY = [
 
 export default function ReferenceStranka() {
   useReveal();
+  useTilt();
 
   return (
     <>
@@ -58,7 +61,7 @@ export default function ReferenceStranka() {
         <div className="obsah rf-staty-mrizka">
           {STATY.map((s, i) => (
             <div key={i} className={`rf-stat reveal reveal-${(i % 4) + 1}`}>
-              <div className="rf-stat-cislo">{s.cislo}</div>
+              <div className="rf-stat-cislo"><Cislo hodnota={s.cislo} /></div>
               <div className="rf-stat-popis">{s.popis}</div>
             </div>
           ))}

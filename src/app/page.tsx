@@ -1,6 +1,7 @@
 "use client";
 
 import useReveal from "@/components/useReveal";
+import useTilt from "@/components/useTilt";
 import Hero from "@/components/Hero";
 import SluzbyNahled from "@/components/SluzbyNahled";
 import Statistiky from "@/components/Statistiky";
@@ -10,6 +11,7 @@ import NovinkyNahled from "@/components/NovinkyNahled";
 
 export default function Domu() {
   useReveal();
+  useTilt();
   return (
     <>
       <Hero />

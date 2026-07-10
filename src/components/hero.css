@@ -75,10 +75,16 @@
   animation: fadeUp 0.6s ease-out 0.1s both;
 }
 .hero-nadpis-modra {
-  background: linear-gradient(135deg, var(--modra-jas) 0%, var(--modra) 100%);
+  background: linear-gradient(120deg, var(--modra-jas) 0%, var(--modra) 30%, #a78bfa 50%, var(--modra) 70%, var(--modra-jas) 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: heroGradient 5s linear infinite;
+}
+@keyframes heroGradient {
+  from { background-position: 0% center; }
+  to { background-position: 200% center; }
 }
 .hero-popis {
   font-size: 18px;

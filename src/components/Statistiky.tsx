@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { IconArrowRight, IconAward, IconUsers, IconClock24, IconTargetArrow } from "@tabler/icons-react";
+import Cislo from "./Cislo";
 import "./statistiky.css";
 
 const STATY = [
@@ -35,8 +36,8 @@ export default function Statistiky() {
           {STATY.map((s, i) => {
             const Ikona = s.ikona;
             return (
-              <div key={i} className={`staty-karta reveal reveal-${(i % 4) + 1}`}>
-                <div className="staty-karta-cislo">{s.cislo}</div>
+              <div key={i} className={`staty-karta tilt reveal reveal-${(i % 4) + 1}`}>
+                <div className="staty-karta-cislo"><Cislo hodnota={s.cislo} /></div>
                 <div className="staty-karta-popis">{s.popis}</div>
                 <div className="staty-karta-ikona"><Ikona size={30} /></div>
               </div>

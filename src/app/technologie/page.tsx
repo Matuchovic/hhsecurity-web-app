@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { IconDeviceCctv, IconDeviceDesktop, IconCar, IconFingerprint, IconRadar2, IconBolt, IconArrowRight, IconCircleCheck } from "@tabler/icons-react";
 import useReveal from "@/components/useReveal";
+import useTilt from "@/components/useTilt";
 import PageHero from "@/components/PageHero";
 import "./technologie.css";
 
@@ -39,6 +40,7 @@ const TECHNOLOGIE = [
 
 export default function TechnologieStranka() {
   useReveal();
+  useTilt();
 
   return (
     <>
@@ -54,7 +56,7 @@ export default function TechnologieStranka() {
           {TECHNOLOGIE.map((t, i) => {
             const Ikona = t.ikona;
             return (
-              <div key={i} className={`tc-karta reveal reveal-${(i % 4) + 1}`}>
+              <div key={i} className={`tc-karta tilt reveal reveal-${(i % 4) + 1}`}>
                 <div className="tc-obraz">
                   <img src={t.obraz} alt={t.nazev} />
                   <div className="tc-obraz-preliv" />
