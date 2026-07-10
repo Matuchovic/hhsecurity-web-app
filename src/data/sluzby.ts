@@ -13,7 +13,7 @@ export const SLUZBY: Sluzba[] = [
   {
     klic: "fyzicka-ostraha",
     ikona: "IconBuildingSkyscraper",
-    obraz: "/images/fyzicka-ostraha.png",
+    obraz: "/images/strazny-mesto-v2.png",
     nazev: "Fyzická ostraha objektů",
     kratky: "Profesionální strážní služba pro objekty, areály i soukromé rezidence.",
     body: [

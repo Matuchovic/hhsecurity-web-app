@@ -7,7 +7,7 @@ import "./sluzby-nahled.css";
 const SLUZBY = [
   {
     ikona: IconShieldHalfFilled,
-    obraz: "/images/fyzicka-ostraha.png",
+    obraz: "/images/strazny-mesto-v2.png",
     nazev: "Fyzická ostraha",
     popis: "Profesionální strážní služba pro objekty, areály i osobní ochranu.",
   },

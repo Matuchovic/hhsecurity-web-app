@@ -44,7 +44,7 @@ export default function ONasStranka() {
         eyebrow="O nás"
         nadpis="Kdo jsme"
         popis="H&H Security s.r.o. je komplexní bezpečnostní agentura, která chrání to nejcennější — vaše bezpečí, majetek a klid."
-        obraz="/images/fyzicka-ostraha.png"
+        obraz="/images/strazny-mesto-v2.png"
       />
 
       {/* Příběh */}
