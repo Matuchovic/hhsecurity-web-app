@@ -56,7 +56,7 @@ export default function SluzbyNahled() {
           {SLUZBY.map((s, i) => {
             const Ikona = s.ikona;
             return (
-              <div key={i} className={`sluzby-n-obal reveal reveal-stagger-${i + 1}`}>
+              <div key={i} className={`sluzby-n-obal reveal-stagger-${i + 1}`}>
                 <Link href="/sluzby" className="sluzby-n-karta tilt">
                   <div className="sluzby-n-obraz">
                     <img src={s.obraz} alt={s.nazev} />
