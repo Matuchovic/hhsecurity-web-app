@@ -1,0 +1,119 @@
+.sluzby-n { background: var(--pozadi); }
+
+.sluzby-n-hlava {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.sluzby-n-vse {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--modra-jas);
+  white-space: nowrap;
+  transition: gap 0.25s ease;
+}
+.sluzby-n-vse:hover { gap: 12px; }
+
+.sluzby-n-mrizka {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.sluzby-n-karta {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.sluzby-n-karta:hover {
+  transform: translateY(-8px);
+  border-color: var(--modra-svetla);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.22);
+}
+
+/* Obraz */
+.sluzby-n-obraz {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.sluzby-n-obraz img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sluzby-n-karta:hover .sluzby-n-obraz img { transform: scale(1.1); }
+.sluzby-n-obraz-preliv {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,14,26,0.1) 0%, rgba(19,26,43,0.85) 100%);
+}
+.sluzby-n-ikona {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+  transition: transform 0.35s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-ikona { transform: scale(1.1) rotate(-4deg); }
+
+/* Tělo */
+.sluzby-n-telo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 20px;
+}
+.sluzby-n-nazev {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.sluzby-n-popis {
+  font-size: 14px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex: 1;
+}
+.sluzby-n-vic {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--modra-jas);
+  transition: gap 0.25s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-vic { gap: 11px; }
+
+@media (max-width: 1100px) {
+  .sluzby-n-mrizka { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .sluzby-n-mrizka { grid-template-columns: repeat(2, 1fr); }
+  .sluzby-n-hlava { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .sluzby-n-mrizka { grid-template-columns: 1fr; }
+}

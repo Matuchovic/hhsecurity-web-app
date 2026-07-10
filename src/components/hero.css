@@ -1,0 +1,187 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 74px;
+}
+
+/* Pozadí */
+.hero-pozadi {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-pozadi img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  animation: heroZoom 20s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+/* Přeliv zleva (aby text byl čitelný) */
+.hero-preliv {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    var(--pozadi) 0%,
+    var(--pozadi) 28%,
+    rgba(10, 14, 26, 0.85) 42%,
+    rgba(10, 14, 26, 0.35) 60%,
+    rgba(10, 14, 26, 0.5) 100%);
+}
+/* Přeliv zespodu */
+.hero-preliv-spodni {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(0deg, var(--pozadi) 0%, transparent 100%);
+}
+
+.hero-vnitrek {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Text */
+.hero-text { max-width: 640px; }
+.hero-eyebrow {
+  animation: fadeUp 0.6s ease-out both;
+}
+.hero-nadpis {
+  font-size: clamp(34px, 5.2vw, 62px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease-out 0.1s both;
+}
+.hero-nadpis-modra {
+  background: linear-gradient(135deg, var(--modra-jas) 0%, var(--modra) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-popis {
+  font-size: 18px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 34px;
+  animation: fadeUp 0.6s ease-out 0.2s both;
+}
+.hero-tlacitka {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.6s ease-out 0.3s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Statistiky */
+.hero-staty {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 620px;
+  animation: fadeUp 0.6s ease-out 0.4s both;
+}
+.hero-stat { display: flex; align-items: center; gap: 12px; }
+.hero-stat-ikona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--okraj-svetly);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--modra-jas);
+  flex-shrink: 0;
+}
+.hero-stat-cislo { font-size: 22px; font-weight: 800; color: #fff; line-height: 1.1; }
+.hero-stat-popis { font-size: 12px; color: var(--text-slaby); }
+
+/* Plovoucí karta */
+.hero-karta {
+  position: absolute;
+  right: 24px;
+  bottom: 120px;
+  width: 280px;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(19, 26, 43, 0.75);
+  border: 1px solid var(--okraj-svetly);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: fadeUp 0.7s ease-out 0.6s both, plavani 4s ease-in-out 1.3s infinite;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.hero-karta:hover {
+  border-color: var(--modra-svetla);
+  box-shadow: 0 24px 70px rgba(37, 99, 235, 0.3);
+}
+@keyframes plavani {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.hero-karta-ikona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+}
+.hero-karta-nadpis { font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.hero-karta-text { font-size: 14px; color: var(--text-tlumeny); line-height: 1.5; margin-bottom: 16px; }
+.hero-karta-odkaz {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--modra-jas);
+}
+
+/* Responzivita */
+@media (max-width: 1024px) {
+  .hero-pozadi img { width: 100%; opacity: 0.5; }
+  .hero-preliv {
+    background: linear-gradient(180deg, rgba(10,14,26,0.7) 0%, rgba(10,14,26,0.85) 100%);
+  }
+  .hero-karta { display: none; }
+  .hero-staty { max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .hero-nadpis { font-size: 34px; }
+  .hero-tlacitka { flex-direction: column; }
+  .hero-tlacitka .btn { width: 100%; justify-content: center; }
+  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .hero-popis br { display: none; }
+}
