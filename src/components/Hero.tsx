@@ -7,6 +7,7 @@ import Cislo from "./Cislo";
 import useParallax from "./useParallax";
 import HeroBlesky from "./HeroBlesky";
 import "./hero.css";
+import "./glitch.css";
 
 const STATY = [
   { ikona: IconClock24, cislo: "24/7", popis: "Nonstop dohled" },
@@ -24,7 +25,7 @@ export default function Hero() {
       {/* Pozadí obrázek s parallax vrstvami */}
       <div className="hero-pozadi">
         <div className="hero-vrstva hero-vrstva-obraz">
-          <img src="/images/hero-tym.png" alt="H&H Security zásahová jednotka" />
+          <img src="/images/hero-tym-v2.png" alt="H&H Security zásahová jednotka" />
         </div>
         <div className="hero-preliv" />
         <div className="hero-preliv-spodni" />
@@ -50,7 +51,7 @@ export default function Hero() {
           <span className="eyebrow hero-eyebrow">Vaše bezpečí. Naše priorita.</span>
           <h1 className="hero-nadpis">
             PROFESIONÁLNÍ<br />
-            BEZPEČNOSTNÍ SLUŽBY<br />
+            <span className="glitch glitch-hover" data-text="BEZPEČNOSTNÍ SLUŽBY">BEZPEČNOSTNÍ SLUŽBY</span><br />
             <span className="hero-nadpis-modra">PRO VÁŠ KLID</span>
           </h1>
           <p className="hero-popis">

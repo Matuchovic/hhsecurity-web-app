@@ -1,0 +1,110 @@
+/* ============================================================
+   KURZOR-ZAMĚŘOVAČ (Fáze 5)
+   ============================================================ */
+
+/* skryj systémový kurzor, když je vlastní aktivní */
+body.ma-vlastni-kurzor,
+body.ma-vlastni-kurzor * {
+  cursor: none !important;
+}
+
+.kurzor-zamerovac {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  z-index: 99999;
+  pointer-events: none;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+/* Vnější kruh */
+.kurzor-kruh {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(96, 165, 250, 0.6);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Rohové značky (hranaté zaměřovací háčky) */
+.kurzor-roh {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--modra-jas, #60a5fa);
+  transition: all 0.25s ease;
+}
+.kurzor-roh-tl { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+.kurzor-roh-tr { top: -3px; right: -3px; border-left: none; border-bottom: none; }
+.kurzor-roh-bl { bottom: -3px; left: -3px; border-right: none; border-top: none; }
+.kurzor-roh-br { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+
+/* Střední tečka */
+.kurzor-tecka {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--modra-jas, #60a5fa);
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  box-shadow: 0 0 6px rgba(96, 165, 250, 0.8);
+}
+
+/* Nitkový kříž */
+.kurzor-linka {
+  position: absolute;
+  background: rgba(96, 165, 250, 0.4);
+  transition: all 0.25s ease;
+}
+.kurzor-linka-h { top: 50%; left: 50%; width: 10px; height: 1px; transform: translate(-50%, -50%); }
+.kurzor-linka-v { top: 50%; left: 50%; width: 1px; height: 10px; transform: translate(-50%, -50%); }
+
+/* ── ZAMČENO na interaktivním prvku ── */
+.kurzor-zamceno {
+  width: 56px;
+  height: 56px;
+}
+.kurzor-zamceno .kurzor-kruh {
+  border-color: rgba(16, 185, 129, 0.8);
+  animation: kurzorRotace 3s linear infinite;
+}
+.kurzor-zamceno .kurzor-roh {
+  border-color: #10b981;
+  width: 10px;
+  height: 10px;
+}
+.kurzor-zamceno .kurzor-tecka {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.9);
+  width: 5px;
+  height: 5px;
+}
+.kurzor-zamceno .kurzor-linka { background: rgba(16, 185, 129, 0.5); }
+@keyframes kurzorRotace {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── KLIK ── */
+.kurzor-klik {
+  width: 36px;
+  height: 36px;
+}
+.kurzor-klik .kurzor-tecka {
+  width: 8px;
+  height: 8px;
+}
+
+/* skryj na dotyku */
+@media (hover: none) {
+  .kurzor-zamerovac { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kurzor-zamerovac { display: none; }
+}

@@ -1,0 +1,75 @@
+/* ============================================================
+   GLITCH EFEKT NA NADPISECH (Fáze 6)
+   Hackerský efekt — občasné rozdvojení + RGB posun.
+   ============================================================ */
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+/* dvě kopie textu přes data-atribut */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* červený kanál — posun vlevo */
+.glitch::before {
+  color: #ff2d5e;
+  z-index: -1;
+  animation: glitchCerveny 4s infinite steps(1);
+}
+/* modrý kanál — posun vpravo */
+.glitch::after {
+  color: #2de0ff;
+  z-index: -2;
+  animation: glitchModry 4s infinite steps(1);
+}
+
+/* Glitch se spustí jen občas (většinu času klid) */
+@keyframes glitchCerveny {
+  0%, 92%, 100% { transform: translate(0, 0); opacity: 0; }
+  93% { transform: translate(-3px, 1px); opacity: 0.8; }
+  94% { transform: translate(2px, -1px); opacity: 0.8; }
+  95% { transform: translate(-2px, 0); opacity: 0.8; }
+  96% { transform: translate(0, 0); opacity: 0; }
+}
+@keyframes glitchModry {
+  0%, 92%, 100% { transform: translate(0, 0); opacity: 0; }
+  93% { transform: translate(3px, -1px); opacity: 0.8; }
+  94% { transform: translate(-2px, 1px); opacity: 0.8; }
+  95% { transform: translate(2px, 0); opacity: 0.8; }
+  96% { transform: translate(0, 0); opacity: 0; }
+}
+
+/* Glitch na hover (výraznější, okamžitý) */
+.glitch-hover:hover::before {
+  animation: glitchCervenyHover 0.4s steps(2) infinite;
+  opacity: 0.8;
+}
+.glitch-hover:hover::after {
+  animation: glitchModryHover 0.4s steps(2) infinite;
+  opacity: 0.8;
+}
+@keyframes glitchCervenyHover {
+  0% { transform: translate(-3px, 1px); }
+  50% { transform: translate(2px, -2px); }
+  100% { transform: translate(-1px, 0); }
+}
+@keyframes glitchModryHover {
+  0% { transform: translate(3px, -1px); }
+  50% { transform: translate(-2px, 2px); }
+  100% { transform: translate(1px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before, .glitch::after { display: none; }
+}
