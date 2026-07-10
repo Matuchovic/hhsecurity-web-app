@@ -1,0 +1,100 @@
+.paticka {
+  background: var(--pozadi-2);
+  border-top: 1px solid var(--okraj);
+  margin-top: 80px;
+}
+
+.paticka-mrizka {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+  gap: 48px;
+  padding: 64px 24px 48px;
+}
+
+/* Značka */
+.paticka-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.paticka-logo img { width: 40px; height: 40px; object-fit: contain; }
+.paticka-logo span { font-size: 18px; font-weight: 800; color: #fff; }
+.paticka-popis {
+  color: var(--text-tlumeny);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+.paticka-social { display: flex; gap: 10px; }
+.paticka-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--okraj);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-tlumeny);
+  transition: all 0.25s ease;
+}
+.paticka-social a:hover {
+  color: #fff;
+  border-color: var(--modra-svetla);
+  background: rgba(59, 130, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Sloupce */
+.paticka-sloupec { display: flex; flex-direction: column; gap: 12px; }
+.paticka-sloupec h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.paticka-sloupec a {
+  font-size: 14px;
+  color: var(--text-tlumeny);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.paticka-sloupec a:hover { color: var(--modra-jas); padding-left: 4px; }
+
+/* Kontakt */
+.paticka-kontakt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+}
+.paticka-kontakt svg { color: var(--modra-jas); flex-shrink: 0; margin-top: 2px; }
+a.paticka-kontakt { transition: color 0.2s ease; }
+a.paticka-kontakt:hover { color: var(--modra-jas); }
+
+/* Spodek */
+.paticka-spodek {
+  border-top: 1px solid var(--okraj);
+  padding: 20px 0;
+}
+.paticka-spodek-vnitrek {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-slaby);
+}
+.paticka-spodek-odkazy { display: flex; gap: 24px; }
+.paticka-spodek-odkazy a { transition: color 0.2s ease; }
+.paticka-spodek-odkazy a:hover { color: var(--modra-jas); }
+
+@media (max-width: 900px) {
+  .paticka-mrizka { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 560px) {
+  .paticka-mrizka { grid-template-columns: 1fr; gap: 32px; }
+  .paticka-spodek-vnitrek { flex-direction: column; gap: 12px; text-align: center; }
+}
