@@ -1,0 +1,80 @@
+.proces { background: var(--pozadi); }
+
+.proces-hlava { text-align: center; margin-bottom: 52px; }
+.proces-hlava .sekce-nadpis { margin: 0 auto; }
+
+.proces-kroky {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.proces-krok-obal {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.proces-krok {
+  flex: 1;
+  padding: 32px 24px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, background 0.35s ease;
+  margin: 0 8px;
+}
+.proces-krok:hover {
+  transform: translateY(-6px);
+  border-color: var(--modra-svetla);
+  background: var(--panel-svetly);
+}
+
+.proces-cislo {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--modra-jas) 0%, var(--indigo) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
+}
+.proces-nazev {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.proces-popis {
+  font-size: 14px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+}
+
+/* Šipka mezi kroky */
+.proces-sipka {
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: var(--modra-svetla);
+  background: var(--pozadi);
+  border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+  .proces-kroky { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .proces-krok { margin: 0; }
+  .proces-sipka { display: none; }
+}
+@media (max-width: 480px) {
+  .proces-kroky { grid-template-columns: 1fr; }
+}

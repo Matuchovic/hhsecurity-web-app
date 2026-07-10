@@ -1,0 +1,50 @@
+.ref-n { background: var(--pozadi-2); overflow: hidden; }
+
+.ref-n-hlava { text-align: center; margin-bottom: 44px; }
+.ref-n-hlava .sekce-nadpis { margin: 0 auto; }
+
+.ref-n-pas {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ref-n-stopa {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: refPosun 32s linear infinite;
+}
+.ref-n-pas:hover .ref-n-stopa { animation-play-state: paused; }
+
+@keyframes refPosun {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ref-n-logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text-slaby);
+  white-space: nowrap;
+  opacity: 0.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  cursor: default;
+}
+.ref-n-logo:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .ref-n-stopa { gap: 40px; }
+  .ref-n-logo { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ref-n-stopa { animation: none; flex-wrap: wrap; justify-content: center; }
+}

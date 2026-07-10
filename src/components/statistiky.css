@@ -1,0 +1,79 @@
+.staty { background: var(--pozadi-2); }
+
+.staty-mrizka {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Levý text */
+.staty-text .sekce-nadpis { margin-bottom: 20px; }
+.staty-btn { margin-top: 28px; }
+
+/* Pravé karty */
+.staty-karty {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.staty-karta {
+  position: relative;
+  padding: 28px 20px 60px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
+}
+.staty-karta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 120%, rgba(37, 99, 235, 0.18) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.staty-karta:hover {
+  transform: translateY(-6px);
+  border-color: var(--modra-svetla);
+}
+.staty-karta:hover::before { opacity: 1; }
+
+.staty-karta-cislo {
+  position: relative;
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.staty-karta-popis {
+  position: relative;
+  font-size: 13px;
+  color: var(--text-tlumeny);
+}
+.staty-karta-ikona {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  color: var(--modra-svetla);
+  opacity: 0.85;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.staty-karta:hover .staty-karta-ikona {
+  transform: translateX(-50%) scale(1.15) translateY(-3px);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .staty-mrizka { grid-template-columns: 1fr; gap: 40px; }
+  .staty-karty { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 620px) {
+  .staty-karty { grid-template-columns: repeat(2, 1fr); }
+  .staty-karta-cislo { font-size: 34px; }
+}

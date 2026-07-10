@@ -9,7 +9,9 @@ export default function Paticka() {
         {/* Značka */}
         <div className="paticka-znacka">
           <Link href="/" className="paticka-logo">
-            <img src="/hh-logo-bile.png" alt="H&H Security" />
+            <span className="paticka-logo-kruh">
+              <img src="/hh-logo.png" alt="H&H Security" />
+            </span>
             <span>H&amp;H SECURITY</span>
           </Link>
           <p className="paticka-popis">
