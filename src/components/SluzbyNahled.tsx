@@ -45,6 +45,7 @@ export default function SluzbyNahled() {
           <div>
             <span className="eyebrow">Naše služby</span>
             <h2 className="sekce-nadpis">Komplexní bezpečnostní řešení</h2>
+            <span className="sluzby-n-podtrzeni" />
           </div>
           <Link href="/sluzby" className="sluzby-n-vse">
             Zobrazit všechny služby <IconArrowRight size={17} />
@@ -55,7 +56,7 @@ export default function SluzbyNahled() {
           {SLUZBY.map((s, i) => {
             const Ikona = s.ikona;
             return (
-              <Link href="/sluzby" key={i} className={`sluzby-n-karta tilt reveal reveal-${(i % 4) + 1}`}>
+              <Link href="/sluzby" key={i} className={`sluzby-n-karta tilt reveal reveal-stagger-${i + 1}`}>
                 <div className="sluzby-n-obraz">
                   <img src={s.obraz} alt={s.nazev} />
                   <div className="sluzby-n-obraz-preliv" />

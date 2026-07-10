@@ -47,13 +47,37 @@
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  background: radial-gradient(circle at var(--lesk-x, 50%) var(--lesk-y, 50%), rgba(96, 165, 250, 0.15) 0%, transparent 45%);
+  background: radial-gradient(circle 180px at var(--lesk-x, 50%) var(--lesk-y, 50%),
+    rgba(96, 165, 250, 0.28) 0%,
+    rgba(59, 130, 246, 0.12) 30%,
+    transparent 60%);
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
   pointer-events: none;
   z-index: 3;
+  mix-blend-mode: screen;
 }
 .sluzby-n-karta:hover::after { opacity: 1; }
+
+/* Spotlight okraj — zářící lem sledující myš */
+.sluzby-n-karta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: radial-gradient(circle 200px at var(--lesk-x, 50%) var(--lesk-y, 50%),
+    rgba(96, 165, 250, 0.7) 0%,
+    transparent 55%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+.sluzby-n-karta:hover::before { opacity: 1; }
 
 /* Obraz */
 .sluzby-n-obraz {
@@ -139,4 +163,95 @@
   .sluzby-n-nazev { font-size: 18px; }
   .sluzby-n-popis { font-size: 14px; }
   .sluzby-n-vse { font-size: 14px; }
+}
+
+/* ============================================================
+   STAGGER REVEAL (Fáze B) — karty se objevují postupně
+   ============================================================ */
+.sluzby-n-karta.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sluzby-n-karta.reveal.viditelny {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* postupné zpoždění zleva doprava */
+.reveal-stagger-1 { transition-delay: 0.05s; }
+.reveal-stagger-2 { transition-delay: 0.15s; }
+.reveal-stagger-3 { transition-delay: 0.25s; }
+.reveal-stagger-4 { transition-delay: 0.35s; }
+.reveal-stagger-5 { transition-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sluzby-n-karta.reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ============================================================
+   PODTRŽENÍ NADPISU (Fáze C) — čára se dokreslí při scrollu
+   ============================================================ */
+.sluzby-n-podtrzeni {
+  display: block;
+  height: 3px;
+  width: 0;
+  margin-top: 14px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--modra) 0%, var(--modra-jas) 100%);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+/* když je hlava viditelná (reveal), čára se nakreslí */
+.sluzby-n-hlava.viditelny .sluzby-n-podtrzeni {
+  width: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sluzby-n-podtrzeni { width: 80px; transition: none; }
+}
+
+/* ============================================================
+   IKONY OŽIJÍ (Fáze D) — animace ikon při hoveru na kartu
+   ============================================================ */
+.sluzby-n-ikona {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-ikona {
+  transform: scale(1.18) rotate(-6deg) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.7), 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+/* samotná ikona (svg) uvnitř — jemný pulz při hoveru */
+.sluzby-n-ikona svg {
+  transition: transform 0.4s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-ikona svg {
+  animation: ikonaPuls 1.2s ease-in-out infinite;
+}
+@keyframes ikonaPuls {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+/* obrázek karty — výraznější zoom + jemný jas při hoveru */
+.sluzby-n-obraz img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-obraz img {
+  transform: scale(1.09);
+  filter: brightness(1.12) saturate(1.1);
+}
+
+/* šipka "Více informací" — posun při hoveru */
+.sluzby-n-vic {
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+.sluzby-n-karta:hover .sluzby-n-vic {
+  gap: 10px;
+  color: var(--modra-jas);
+}
+.sluzby-n-vic svg { transition: transform 0.3s ease; }
+.sluzby-n-karta:hover .sluzby-n-vic svg { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .sluzby-n-karta:hover .sluzby-n-ikona svg { animation: none; }
 }
