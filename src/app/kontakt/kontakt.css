@@ -1,0 +1,143 @@
+.kt { padding: 90px 0; }
+.kt-mrizka {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Levá — info */
+.kt-nadpis {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.kt-uvod {
+  font-size: 16px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.kt-seznam { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.kt-polozka {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.kt-polozka-odkaz:hover {
+  border-color: var(--modra-svetla);
+  transform: translateX(4px);
+}
+.kt-polozka-ikona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid var(--okraj-svetly);
+  color: var(--modra-jas);
+  flex-shrink: 0;
+}
+.kt-polozka-popisek { font-size: 12px; color: var(--text-slaby); margin-bottom: 3px; }
+.kt-polozka-hodnota { font-size: 15px; color: #fff; font-weight: 500; }
+
+.kt-firma {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--pozadi-2);
+  border: 1px solid var(--okraj);
+  margin-bottom: 20px;
+}
+.kt-firma-radek {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.kt-firma-radek svg { color: var(--modra-jas); }
+.kt-firma-udaje { display: flex; gap: 20px; font-size: 14px; color: var(--text-tlumeny); }
+
+.kt-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--modra-jas);
+  transition: gap 0.25s ease;
+}
+.kt-social:hover { gap: 13px; }
+
+/* Pravá — formulář */
+.kt-formular {
+  padding: 36px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--panel-svetly) 0%, var(--panel) 100%);
+  border: 1px solid var(--okraj-svetly);
+}
+.kt-formular-nadpis { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+.kt-pole { margin-bottom: 18px; }
+.kt-pole label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tlumeny);
+  margin-bottom: 8px;
+}
+.kt-pole input, .kt-pole textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--okraj-svetly);
+  background: rgba(10, 14, 26, 0.6);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.kt-pole input::placeholder, .kt-pole textarea::placeholder { color: var(--text-slaby); }
+.kt-pole input:focus, .kt-pole textarea:focus {
+  border-color: var(--modra-svetla);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+.kt-pole textarea { resize: vertical; }
+.kt-radek { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.kt-odeslat {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-top: 4px;
+}
+.kt-odeslat:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5); }
+.kt-poznamka { font-size: 12px; color: var(--text-slaby); text-align: center; margin-top: 14px; }
+
+@media (max-width: 860px) {
+  .kt-mrizka { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 480px) {
+  .kt-radek { grid-template-columns: 1fr; }
+  .kt-formular { padding: 24px; }
+}

@@ -106,4 +106,29 @@ export const KONTAKT = {
   ic: "14042711",
   dic: "CZ14042711",
   adresa: "Rybná 716/24, Praha 1, 110 00 Staré Město",
+  facebook: "https://www.facebook.com/profile.php?id=100076107425832",
 };
+
+// Proč H&H Security (dle reálného webu)
+export const PROC_HH = [
+  {
+    ikona: "IconShieldCheck",
+    nazev: "Profesionální tým",
+    popis: "Naši zaměstnanci jsou školení odborníci s licencí na výkon bezpečnostní činnosti.",
+  },
+  {
+    ikona: "IconAdjustments",
+    nazev: "Individuální přístup",
+    popis: "Každý klient má specifické potřeby, proto vytváříme na míru šité bezpečnostní plány.",
+  },
+  {
+    ikona: "IconLock",
+    nazev: "Diskrétnost a spolehlivost",
+    popis: "Dbáme na důvěrnost informací a špičkovou kvalitu poskytovaných služeb.",
+  },
+  {
+    ikona: "IconClock24",
+    nazev: "Nepřetržitá dostupnost",
+    popis: "Jsme k dispozici 24/7, abychom zajistili vaši bezpečnost kdykoliv a kdekoliv.",
+  },
+];

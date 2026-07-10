@@ -1,0 +1,165 @@
+.rf-nadpis {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  color: #fff;
+}
+.rf-hlava { text-align: center; margin-bottom: 48px; }
+.rf-hlava .rf-nadpis { margin: 0 auto; max-width: 600px; }
+
+/* Statistiky */
+.rf-staty {
+  padding: 60px 0;
+  background: var(--pozadi-2);
+  border-bottom: 1px solid var(--okraj);
+}
+.rf-staty-mrizka {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.rf-stat { text-align: center; }
+.rf-stat-cislo {
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--modra-jas) 0%, var(--indigo) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rf-stat-popis { font-size: 14px; color: var(--text-tlumeny); }
+
+/* Loga klientů */
+.rf-klienti { padding: 80px 0; }
+.rf-loga {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.rf-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-slaby);
+  transition: all 0.3s ease;
+}
+.rf-logo:hover {
+  color: #fff;
+  border-color: var(--modra-svetla);
+  transform: translateY(-4px);
+}
+
+/* Recenze */
+.rf-recenze {
+  padding: 80px 0;
+  background: var(--pozadi-2);
+  border-top: 1px solid var(--okraj);
+  border-bottom: 1px solid var(--okraj);
+}
+.rf-recenze-mrizka {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.rf-karta {
+  position: relative;
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+.rf-karta:hover { transform: translateY(-6px); border-color: var(--modra-svetla); }
+.rf-karta-quote {
+  color: var(--modra);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+.rf-hvezdy { display: flex; gap: 3px; color: #fbbf24; margin-bottom: 16px; }
+.rf-karta-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  font-style: italic;
+}
+.rf-karta-jmeno { font-size: 15px; font-weight: 700; color: #fff; }
+.rf-karta-firma { font-size: 13px; color: var(--modra-jas); margin-top: 2px; }
+
+/* Proč H&H */
+.rf-proc { padding: 80px 0; }
+.rf-proc-mrizka {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.rf-proc-karta {
+  padding: 28px 24px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+.rf-proc-karta:hover {
+  transform: translateY(-6px);
+  border-color: var(--modra-svetla);
+  background: var(--panel-svetly);
+}
+.rf-proc-ikona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+.rf-proc-karta h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.rf-proc-karta p { font-size: 14px; color: var(--text-tlumeny); line-height: 1.65; }
+
+/* CTA */
+.rf-cta { padding: 90px 0; }
+.rf-cta-vnitrek {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 40px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--panel-svetly) 0%, var(--panel) 100%);
+  border: 1px solid var(--okraj-svetly);
+}
+.rf-cta-vnitrek h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.rf-cta-vnitrek p {
+  font-size: 16px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 900px) {
+  .rf-staty-mrizka { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .rf-loga { grid-template-columns: repeat(3, 1fr); }
+  .rf-recenze-mrizka { grid-template-columns: 1fr; }
+  .rf-proc-mrizka { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .rf-staty-mrizka { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .rf-loga { grid-template-columns: repeat(2, 1fr); }
+  .rf-proc-mrizka { grid-template-columns: 1fr; }
+  .rf-cta-vnitrek { padding: 40px 24px; }
+}
