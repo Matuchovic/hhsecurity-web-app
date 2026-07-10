@@ -1,0 +1,128 @@
+.sluzby-detail { padding: 90px 0; }
+
+.sluzba-blok {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.sluzba-blok:last-child { margin-bottom: 0; }
+.sluzba-blok-obraceny .sluzba-obraz { order: 2; }
+
+/* Obraz */
+.sluzba-obraz {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.sluzba-obraz img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sluzba-blok:hover .sluzba-obraz img { transform: scale(1.05); }
+.sluzba-obraz-ram {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px var(--okraj-svetly);
+  background: linear-gradient(180deg, transparent 60%, rgba(10,14,26,0.4) 100%);
+  pointer-events: none;
+}
+.sluzba-obraz-ikona {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+}
+
+/* Text */
+.sluzba-cislo {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--modra-jas);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.sluzba-nazev {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.sluzba-kratky {
+  font-size: 17px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.sluzba-body { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.sluzba-body li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.sluzba-body li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  border-radius: 50%;
+  padding: 3px;
+  width: 22px;
+  height: 22px;
+}
+
+/* CTA */
+.sluzby-cta {
+  padding: 80px 0;
+  background: var(--pozadi-2);
+  border-top: 1px solid var(--okraj);
+}
+.sluzby-cta-vnitrek {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.sluzby-cta-nadpis {
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.sluzby-cta-popis {
+  font-size: 17px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.sluzby-cta-tlacitka {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .sluzba-blok { grid-template-columns: 1fr; gap: 32px; margin-bottom: 70px; }
+  .sluzba-blok-obraceny .sluzba-obraz { order: 0; }
+}
+@media (max-width: 480px) {
+  .sluzby-cta-tlacitka { flex-direction: column; }
+  .sluzby-cta-tlacitka .btn { width: 100%; justify-content: center; }
+}

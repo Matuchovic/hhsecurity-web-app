@@ -13,7 +13,7 @@ const SLUZBY = [
   },
   {
     ikona: IconDeviceCctv,
-    obraz: "/images/kamerovy-system.png",
+    obraz: "/images/operations-center.png",
     nazev: "Pult centralizované ochrany (PCO)",
     popis: "24/7 monitoring a okamžitá reakce na poplachové události.",
   },

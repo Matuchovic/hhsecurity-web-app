@@ -12,12 +12,12 @@ const CLANKY = [
     nazev: "Moderní trendy v kamerových systémech pro rok 2026",
   },
   {
-    obraz: "/images/fyzicka-ostraha.png",
+    obraz: "/images/mobilni-jednotka.png",
     datum: "8. května 2026",
     nazev: "Jak vybrat správnou bezpečnostní službu pro vaši firmu",
   },
   {
-    obraz: "/images/pristupovy-system.png",
+    obraz: "/images/operations-center.png",
     datum: "1. května 2026",
     nazev: "Výhody pultu centralizované ochrany pro váš business",
   },
