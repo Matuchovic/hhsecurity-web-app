@@ -56,20 +56,22 @@ export default function SluzbyNahled() {
           {SLUZBY.map((s, i) => {
             const Ikona = s.ikona;
             return (
-              <Link href="/sluzby" key={i} className={`sluzby-n-karta tilt reveal reveal-stagger-${i + 1}`}>
-                <div className="sluzby-n-obraz">
-                  <img src={s.obraz} alt={s.nazev} />
-                  <div className="sluzby-n-obraz-preliv" />
-                  <div className="sluzby-n-ikona"><Ikona size={22} /></div>
-                </div>
-                <div className="sluzby-n-telo">
-                  <h3 className="sluzby-n-nazev">{s.nazev}</h3>
-                  <p className="sluzby-n-popis">{s.popis}</p>
-                  <span className="sluzby-n-vic">
-                    Více informací <IconArrowRight size={15} />
-                  </span>
-                </div>
-              </Link>
+              <div key={i} className={`sluzby-n-obal reveal reveal-stagger-${i + 1}`}>
+                <Link href="/sluzby" className="sluzby-n-karta tilt">
+                  <div className="sluzby-n-obraz">
+                    <img src={s.obraz} alt={s.nazev} />
+                    <div className="sluzby-n-obraz-preliv" />
+                    <div className="sluzby-n-ikona"><Ikona size={22} /></div>
+                  </div>
+                  <div className="sluzby-n-telo">
+                    <h3 className="sluzby-n-nazev">{s.nazev}</h3>
+                    <p className="sluzby-n-popis">{s.popis}</p>
+                    <span className="sluzby-n-vic">
+                      Více informací <IconArrowRight size={15} />
+                    </span>
+                  </div>
+                </Link>
+              </div>
             );
           })}
         </div>
