@@ -14,17 +14,10 @@
   z-index: 0;
 }
 .hero-pozadi img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 62%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center right;
-  animation: heroZoom 20s ease-out forwards;
+  /* styl přesunut do .hero-vrstva-obraz img (parallax vrstvy) */
 }
 @keyframes heroZoom {
-  from { transform: scale(1.08); }
+  from { transform: scale(1.12); }
   to { transform: scale(1); }
 }
 /* Přeliv zleva (aby text byl čitelný) */
@@ -177,7 +170,7 @@
 
 /* Responzivita */
 @media (max-width: 1024px) {
-  .hero-pozadi img { width: 100%; opacity: 0.42; object-position: center; }
+  .hero-vrstva-obraz img { width: 100%; opacity: 0.42; object-position: center; }
   .hero-preliv {
     background: linear-gradient(180deg, rgba(10,14,26,0.72) 0%, rgba(10,14,26,0.88) 100%);
   }
@@ -215,4 +208,167 @@
   .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
   .hero-stat-ikona { width: 36px; height: 36px; }
   .hero-stat-cislo { font-size: 17px; }
+}
+
+/* ============================================================
+   PARALLAX VRSTVY (Fáze 1) — pohyb za myší
+   Proměnné --parx a --pary (-1 až 1) nastavuje useParallax.
+   ============================================================ */
+.hero-vrstva {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Obraz vojáka — vrstva dělá parallax posun (translate) */
+.hero-vrstva-obraz {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(calc(var(--parx, 0) * 14px), calc(var(--pary, 0) * 14px), 0);
+}
+/* img uvnitř dělá zoom (scale) — transformy se nebijou, jsou na jiných elementech */
+.hero-vrstva-obraz img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  animation: heroZoom 20s ease-out forwards;
+}
+
+/* Text — posun opačným směrem (bližší vrstva = větší pohyb) */
+.hero-vrstva-text {
+  transform: translate3d(calc(var(--parx, 0) * -10px), calc(var(--pary, 0) * -8px), 0);
+  will-change: transform;
+}
+
+/* Karta Rychlý zásah — nejbližší vrstva, největší pohyb */
+.hero-vrstva-karta {
+  transform: translate3d(calc(var(--parx, 0) * -20px), calc(var(--pary, 0) * -16px), 0);
+  will-change: transform;
+}
+
+@media (hover: none) {
+  .hero-vrstva-obraz, .hero-vrstva-text, .hero-vrstva-karta { transform: none; }
+  .hero-vrstva-obraz { transform: scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-vrstva-obraz, .hero-vrstva-text, .hero-vrstva-karta { transform: none !important; }
+}
+
+/* ============================================================
+   SVĚTLO ZA MYŠÍ — reflektor (Fáze 2)
+   ============================================================ */
+.hero-svetlo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    circle 280px at var(--svetlo-x, 50%) var(--svetlo-y, 50%),
+    rgba(96, 165, 250, 0.12) 0%,
+    rgba(59, 130, 246, 0.06) 35%,
+    transparent 65%
+  );
+  mix-blend-mode: screen;
+}
+.hero-svetlo-aktivni .hero-svetlo { opacity: 1; }
+
+@media (hover: none) {
+  .hero-svetlo { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-svetlo { display: none; }
+}
+
+/* ============================================================
+   INTERAKTIVNÍ BLESKY (Fáze 3)
+   ============================================================ */
+.hero-blesky {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-blesky-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Jednotlivý blesk */
+.hero-blesk {
+  stroke: #93c5fd;
+  stroke-width: 2.5;
+  fill: none;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(147, 197, 253, 0.9)) drop-shadow(0 0 14px rgba(96, 165, 250, 0.7));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hero-blesk-on {
+  animation: bleskUder 0.4s ease-out;
+}
+@keyframes bleskUder {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  18% { opacity: 0.4; }
+  28% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* Záblesk celé scény */
+.hero-zablesk {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(147, 197, 253, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+.hero-zablesk-on { opacity: 1; }
+
+@media (hover: none) {
+  .hero-blesky { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-blesky { display: none; }
+}
+
+/* ============================================================
+   PLOVOUCÍ ČÁSTICE (Fáze 4)
+   ============================================================ */
+.hero-castice {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  /* jemný posun s parallaxem (nejbližší vrstva) */
+  transform: translate3d(calc(var(--parx, 0) * -12px), calc(var(--pary, 0) * -12px), 0);
+}
+.hero-castice-bod {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(147, 197, 253, 0.7);
+  box-shadow: 0 0 6px rgba(96, 165, 250, 0.8);
+  animation: casticePlov linear infinite;
+  opacity: 0;
+}
+@keyframes casticePlov {
+  0% { transform: translateY(20px) scale(0.6); opacity: 0; }
+  15% { opacity: 0.7; }
+  85% { opacity: 0.5; }
+  100% { transform: translateY(-60px) scale(1); opacity: 0; }
+}
+
+@media (hover: none) {
+  .hero-castice { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-castice { display: none; }
 }

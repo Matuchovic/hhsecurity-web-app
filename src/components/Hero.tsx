@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRef } from "react";
 import { IconArrowRight, IconBolt, IconClock24, IconAward, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react";
 import Cislo from "./Cislo";
+import useParallax from "./useParallax";
+import HeroBlesky from "./HeroBlesky";
 import "./hero.css";
 
 const STATY = [
@@ -13,17 +16,37 @@ const STATY = [
 ];
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  useParallax(heroRef);
+
   return (
-    <section className="hero">
-      {/* Pozadí obrázek */}
+    <section className="hero" ref={heroRef}>
+      {/* Pozadí obrázek s parallax vrstvami */}
       <div className="hero-pozadi">
-        <img src="/images/hero-tym.png" alt="H&H Security zásahová jednotka" />
+        <div className="hero-vrstva hero-vrstva-obraz">
+          <img src="/images/hero-tym.png" alt="H&H Security zásahová jednotka" />
+        </div>
         <div className="hero-preliv" />
         <div className="hero-preliv-spodni" />
+        {/* Fáze 2: světlo za myší (reflektor) */}
+        <div className="hero-svetlo" />
+        {/* Fáze 3: interaktivní blesky */}
+        <HeroBlesky />
+        {/* Fáze 4: plovoucí částice */}
+        <div className="hero-castice" aria-hidden="true">
+          {Array.from({ length: 18 }).map((_, i) => (
+            <span key={i} className="hero-castice-bod" style={{
+              left: `${(i * 5.9 + 8) % 96}%`,
+              top: `${(i * 7.3 + 5) % 90}%`,
+              animationDelay: `${(i * 0.7) % 12}s`,
+              animationDuration: `${10 + (i % 6) * 2}s`,
+            }} />
+          ))}
+        </div>
       </div>
 
       <div className="obsah hero-vnitrek">
-        <div className="hero-text">
+        <div className="hero-text hero-vrstva-text">
           <span className="eyebrow hero-eyebrow">Vaše bezpečí. Naše priorita.</span>
           <h1 className="hero-nadpis">
             PROFESIONÁLNÍ<br />
@@ -61,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* Plovoucí karta Rychlý zásah */}
-        <Link href="/sluzby" className="hero-karta">
+        <Link href="/sluzby" className="hero-karta hero-vrstva-karta">
           <div className="hero-karta-ikona"><IconBolt size={22} /></div>
           <div className="hero-karta-nadpis">Rychlý zásah</div>
           <div className="hero-karta-text">Dojedeme na místo již do 15 minut.</div>
