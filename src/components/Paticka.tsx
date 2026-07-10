@@ -72,6 +72,7 @@ export default function Paticka() {
           <div className="paticka-spodek-odkazy">
             <Link href="/ochrana-udaju">Ochrana osobních údajů</Link>
             <Link href="/obchodni-podminky">Obchodní podmínky</Link>
+            <Link href="/cookies">Cookies</Link>
           </div>
         </div>
       </div>

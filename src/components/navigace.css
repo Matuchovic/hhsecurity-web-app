@@ -67,6 +67,9 @@
 .nav-odkaz-aktivni { color: #fff; }
 .nav-odkaz-aktivni::after { transform: scaleX(1); }
 
+/* Zóny */
+.nav-zony { display: flex; align-items: center; gap: 10px; }
+
 /* Klientská zóna */
 .nav-klient {
   display: inline-flex;
@@ -86,6 +89,33 @@
   background: rgba(59, 130, 246, 0.1);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
+
+/* Interní zóna — odlišná (bezpečnější, tmavší akcent) */
+.nav-interni {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--okraj-svetly);
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--modra-jas);
+  transition: all 0.25s ease;
+}
+.nav-interni:hover {
+  border-color: var(--modra);
+  background: rgba(37, 99, 235, 0.16);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+.nav-interni svg { animation: interniPulz 3s ease-in-out infinite; }
+@keyframes interniPulz {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.nav-mobil-interni { color: var(--modra-jas) !important; }
 
 /* Burger (mobil) */
 .nav-burger { display: none; color: var(--text); padding: 6px; }
@@ -120,7 +150,7 @@
 }
 
 @media (max-width: 940px) {
-  .nav-menu, .nav-klient { display: none; }
+  .nav-menu, .nav-zony { display: none; }
   .nav-burger { display: block; }
   .nav-mobil { display: flex; }
   .nav-logo-slogan { display: none; }

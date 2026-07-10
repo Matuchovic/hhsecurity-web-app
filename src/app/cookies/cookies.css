@@ -1,0 +1,146 @@
+/* Druhy cookies — karty */
+.ck-druhy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.ck-druh {
+  padding: 22px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.ck-druh:hover { transform: translateY(-4px); border-color: var(--modra-svetla); }
+.ck-druh-ikona {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.ck-druh-nutne { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.ck-druh-analyticke { background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%); }
+.ck-druh-marketing { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); }
+.ck-druh-nazev { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.ck-druh-popis { font-size: 13px; color: var(--text-tlumeny); line-height: 1.6; margin-bottom: 14px; }
+.ck-druh-stav {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-tlumeny);
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--pozadi-2);
+  border: 1px solid var(--okraj);
+}
+.ck-druh-stav-vzdy { color: #10b981; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); }
+
+/* Tabulka */
+.ck-tabulka-obal {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--okraj);
+  margin: 20px 0;
+}
+.ck-tabulka {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 520px;
+}
+.ck-tabulka th {
+  text-align: left;
+  padding: 14px 18px;
+  background: var(--pozadi-2);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid var(--okraj);
+}
+.ck-tabulka td {
+  padding: 14px 18px;
+  color: var(--text-tlumeny);
+  border-bottom: 1px solid var(--okraj);
+}
+.ck-tabulka tbody tr:last-child td { border-bottom: none; }
+.ck-tabulka td:first-child { font-family: var(--font-mono, monospace); color: var(--modra-jas); font-size: 13px; }
+.ck-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.ck-tag-nutne { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+.ck-tag-analyticke { background: rgba(59, 130, 246, 0.12); color: var(--modra-jas); }
+
+/* Nastavení přepínače */
+.ck-nastaveni {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+.ck-prepnout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+}
+.ck-prepnout-disabled { opacity: 0.75; }
+.ck-prepnout-nazev { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+.ck-prepnout-popis { font-size: 13px; color: var(--text-tlumeny); }
+
+.ck-switch {
+  position: relative;
+  width: 48px;
+  height: 27px;
+  border-radius: 100px;
+  background: var(--okraj-svetly);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+.ck-switch-on { background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%); }
+.ck-switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ck-switch-on .ck-switch-knob { transform: translateX(21px); }
+.ck-switch-locked { cursor: not-allowed; }
+
+.ck-ulozit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-top: 8px;
+}
+.ck-ulozit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5); }
+
+@media (max-width: 768px) {
+  .ck-druhy { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,324 @@
+/* ============================================================
+   PRÁVNÍ STRÁNKY — sdílené styly s wow efekty
+   ============================================================ */
+
+/* ── HERO ── */
+.pr-hero {
+  position: relative;
+  padding: 160px 0 70px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--okraj);
+}
+.pr-hero-pozadi { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.pr-hero-mrizka {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: prMrizka 22s linear infinite;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
+}
+@keyframes prMrizka {
+  from { transform: translate(0, 0); }
+  to { transform: translate(48px, 48px); }
+}
+.pr-hero-kruh {
+  position: absolute;
+  border-radius: 50%;
+  animation: prKruh 9s ease-in-out infinite;
+}
+.pr-hero-kruh-1 {
+  width: 480px; height: 480px; top: -180px; left: 10%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, transparent 70%);
+}
+.pr-hero-kruh-2 {
+  width: 400px; height: 400px; top: -120px; right: 12%;
+  background: radial-gradient(circle, rgba(34, 42, 132, 0.16) 0%, transparent 70%);
+  animation-delay: 3s;
+}
+@keyframes prKruh {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.pr-hero-vnitrek { position: relative; z-index: 1; text-align: center; max-width: 760px; margin: 0 auto; }
+.pr-hero-ikona {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  margin-bottom: 24px;
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.5);
+  animation: prIkona 3s ease-in-out infinite, fadeUp 0.6s ease-out both;
+}
+@keyframes prIkona {
+  0%, 100% { box-shadow: 0 0 36px rgba(37, 99, 235, 0.45); }
+  50% { box-shadow: 0 0 56px rgba(59, 130, 246, 0.8); }
+}
+.pr-hero-eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--modra-jas);
+  margin-bottom: 16px;
+  animation: fadeUp 0.6s ease-out 0.1s both;
+}
+.pr-hero-nadpis {
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.1;
+  animation: fadeUp 0.6s ease-out 0.2s both;
+}
+.pr-hero-popis {
+  font-size: 17px;
+  color: var(--text-tlumeny);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s ease-out 0.3s both;
+}
+.pr-hero-ucinnost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid var(--okraj-svetly);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--modra-jas);
+  animation: fadeUp 0.6s ease-out 0.4s both;
+}
+
+/* ── ROZLOŽENÍ: obsah + boční navigace ── */
+.pr-telo { padding: 70px 0 90px; }
+.pr-mrizka {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Boční navigace (sticky) */
+.pr-nav {
+  position: sticky;
+  top: 100px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--okraj);
+}
+.pr-nav-nadpis {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-slaby);
+  margin-bottom: 16px;
+}
+.pr-nav-seznam { display: flex; flex-direction: column; gap: 2px; }
+.pr-nav-odkaz {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-tlumeny);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+.pr-nav-odkaz:hover { background: rgba(59, 130, 246, 0.08); color: var(--text); }
+.pr-nav-odkaz-aktivni {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--modra-jas);
+  font-weight: 600;
+}
+.pr-nav-cislo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--pozadi-2);
+  border: 1px solid var(--okraj);
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pr-nav-odkaz-aktivni .pr-nav-cislo {
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ── Obsah paragrafů ── */
+.pr-obsah { min-width: 0; }
+.pr-sekce {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--okraj);
+  scroll-margin-top: 100px;
+}
+.pr-sekce:first-child { padding-top: 0; }
+.pr-sekce:last-child { border-bottom: none; }
+
+.pr-sekce-hlava {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.pr-sekce-cislo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+.pr-sekce-nadpis { font-size: 22px; font-weight: 700; color: #fff; }
+
+.pr-sekce p {
+  font-size: 15px;
+  color: var(--text-tlumeny);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.pr-sekce p:last-child { margin-bottom: 0; }
+.pr-sekce strong { color: var(--text); font-weight: 600; }
+
+/* Seznam s odrážkami */
+.pr-seznam { list-style: none; margin: 16px 0; display: flex; flex-direction: column; gap: 12px; }
+.pr-seznam li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-tlumeny);
+  line-height: 1.6;
+}
+.pr-seznam li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--modra-jas);
+}
+
+/* Zvýrazněný box */
+.pr-box {
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid var(--okraj-svetly);
+  border-left: 3px solid var(--modra-svetla);
+  margin: 20px 0;
+}
+.pr-box-nadpis {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--modra-jas);
+  margin-bottom: 10px;
+}
+.pr-box p { font-size: 14px; margin-bottom: 0; }
+
+/* Definiční tabulka */
+.pr-def {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1px;
+  background: var(--okraj);
+  border: 1px solid var(--okraj);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.pr-def-klic, .pr-def-hodnota {
+  padding: 14px 18px;
+  background: var(--panel);
+  font-size: 14px;
+}
+.pr-def-klic { font-weight: 600; color: var(--text); }
+.pr-def-hodnota { color: var(--text-tlumeny); }
+
+/* Kontaktní karta správce */
+.pr-spravce {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, var(--panel) 60%);
+  border: 1px solid var(--okraj-svetly);
+  margin: 20px 0;
+}
+.pr-spravce-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--modra) 0%, var(--indigo) 100%);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+.pr-spravce-info { flex: 1; }
+.pr-spravce-jmeno { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.pr-spravce-role { font-size: 13px; color: var(--modra-jas); margin-bottom: 8px; }
+.pr-spravce-udaje { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: var(--text-tlumeny); }
+.pr-spravce-udaje a { color: var(--modra-jas); }
+
+/* ── Responzivita ── */
+@media (max-width: 900px) {
+  .pr-mrizka { grid-template-columns: 1fr; gap: 32px; }
+  .pr-nav { position: static; display: none; }
+}
+@media (max-width: 768px) {
+  .pr-hero { padding: 130px 0 56px; }
+  .pr-telo { padding: 52px 0 64px; }
+  .pr-sekce-nadpis { font-size: 19px; }
+  .pr-def { grid-template-columns: 1fr; }
+  .pr-def-klic { border-bottom: none; padding-bottom: 4px; }
+  .pr-def-hodnota { padding-top: 4px; }
+}
+@media (max-width: 480px) {
+  .pr-hero-ikona { width: 60px; height: 60px; }
+  .pr-hero-nadpis { font-size: 28px; }
+  .pr-sekce-hlava { gap: 10px; }
+  .pr-sekce-cislo { width: 38px; height: 38px; font-size: 15px; }
+  .pr-sekce-nadpis { font-size: 18px; }
+  .pr-spravce { flex-direction: column; text-align: center; }
+  .pr-spravce-udaje { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-hero-mrizka, .pr-hero-kruh, .pr-hero-ikona { animation: none; }
+}

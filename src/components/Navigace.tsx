@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IconLock, IconMenu2, IconX } from "@tabler/icons-react";
+import { IconLock, IconShieldLock, IconMenu2, IconX } from "@tabler/icons-react";
 import "./navigace.css";
 
 const ODKAZY = [
@@ -56,11 +56,17 @@ export default function Navigace() {
           ))}
         </nav>
 
-        {/* Klientská zóna */}
-        <Link href="/klient" className="nav-klient">
-          <IconLock size={16} />
-          Klientská zóna
-        </Link>
+        {/* Zóny */}
+        <div className="nav-zony">
+          <Link href="/interni" className="nav-interni">
+            <IconShieldLock size={16} />
+            Interní zóna
+          </Link>
+          <Link href="/klient" className="nav-klient">
+            <IconLock size={16} />
+            Klientská zóna
+          </Link>
+        </div>
 
         {/* Mobilní tlačítko */}
         <button
@@ -83,6 +89,9 @@ export default function Navigace() {
             {o.label}
           </Link>
         ))}
+        <Link href="/interni" className="nav-mobil-klient nav-mobil-interni">
+          <IconShieldLock size={16} /> Interní zóna
+        </Link>
         <Link href="/klient" className="nav-mobil-klient">
           <IconLock size={16} /> Klientská zóna
         </Link>
