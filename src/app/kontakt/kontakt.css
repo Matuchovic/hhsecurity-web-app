@@ -137,7 +137,13 @@
 @media (max-width: 860px) {
   .kt-mrizka { grid-template-columns: 1fr; gap: 40px; }
 }
+@media (max-width: 768px) {
+  .kt { padding: 64px 0; }
+  .kt-formular { padding: 28px; }
+}
 @media (max-width: 480px) {
   .kt-radek { grid-template-columns: 1fr; }
   .kt-formular { padding: 24px; }
+  .kt-polozka { padding: 14px; }
+  .kt-firma-udaje { flex-direction: column; gap: 6px; }
 }

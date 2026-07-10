@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigace from "@/components/Navigace";
 import Paticka from "@/components/Paticka";
+import ClientVrstva from "@/components/ClientVrstva";
 
 export const metadata: Metadata = {
   title: "H&H Security — Zabezpečíme váš klid",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="cs">
       <body>
+        <ClientVrstva />
         <Navigace />
         <main>{children}</main>
         <Paticka />

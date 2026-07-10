@@ -37,7 +37,6 @@ export default function Navigace() {
       <div className="obsah nav-vnitrek">
         {/* Logo */}
         <Link href="/" className="nav-logo">
-          <img src="/hh-logo-bile.png" alt="H&H Security" className="nav-logo-img" />
           <span className="nav-logo-text">
             <span className="nav-logo-nazev">H&amp;H SECURITY</span>
             <span className="nav-logo-slogan">ZABEZPEČÍME VÁŠ KLID</span>

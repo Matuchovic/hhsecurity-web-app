@@ -73,7 +73,18 @@
   .staty-mrizka { grid-template-columns: 1fr; gap: 40px; }
   .staty-karty { grid-template-columns: repeat(4, 1fr); }
 }
-@media (max-width: 620px) {
-  .staty-karty { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 768px) {
+  .staty-mrizka { gap: 32px; }
+  .staty-karta { padding: 24px 16px 54px; }
   .staty-karta-cislo { font-size: 34px; }
+}
+@media (max-width: 620px) {
+  .staty-karty { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .staty-karta-cislo { font-size: 32px; }
+}
+@media (max-width: 360px) {
+  .staty-karty { gap: 12px; }
+  .staty-karta { padding: 20px 12px 48px; }
+  .staty-karta-cislo { font-size: 28px; }
+  .staty-karta-popis { font-size: 12px; }
 }

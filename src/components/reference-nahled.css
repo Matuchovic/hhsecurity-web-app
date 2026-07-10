@@ -40,9 +40,14 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .ref-n-hlava { margin-bottom: 36px; }
+  .ref-n-stopa { gap: 48px; }
+  .ref-n-logo { font-size: 22px; }
+}
 @media (max-width: 600px) {
-  .ref-n-stopa { gap: 40px; }
-  .ref-n-logo { font-size: 20px; }
+  .ref-n-stopa { gap: 36px; }
+  .ref-n-logo { font-size: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

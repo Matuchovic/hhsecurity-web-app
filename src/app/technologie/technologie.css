@@ -97,6 +97,20 @@
   .tc-pruh-vnitrek { flex-direction: column; text-align: center; }
   .tc-pruh-text h2 { font-size: 22px; }
 }
+@media (max-width: 768px) {
+  .tc { padding: 64px 0; }
+  .tc-obraz { height: 190px; }
+  .tc-telo { padding: 24px; }
+  .tc-nazev { font-size: 19px; }
+  .tc-popis { font-size: 14px; }
+}
 @media (max-width: 480px) {
+  .tc-obraz { height: 180px; }
+  .tc-telo { padding: 20px; }
+  .tc-nazev { font-size: 18px; }
+  .tc-ikona { width: 46px; height: 46px; left: 20px; bottom: 20px; }
+  .tc-pruh { padding: 56px 0; }
   .tc-pruh-vnitrek { padding: 28px; }
+  .tc-pruh-ikona { width: 60px; height: 60px; }
+  .tc-pruh-btn { width: 100%; justify-content: center; }
 }

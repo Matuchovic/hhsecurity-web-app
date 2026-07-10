@@ -33,3 +33,15 @@
   line-height: 1.6;
   animation: fadeUp 0.6s ease-out 0.2s both;
 }
+
+@media (max-width: 768px) {
+  .ph { padding: 130px 0 60px; }
+  .ph-nadpis { font-size: clamp(28px, 7vw, 40px); margin-bottom: 14px; }
+  .ph-popis { font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .ph { padding: 116px 0 48px; }
+  .ph-nadpis { font-size: 28px; }
+  .ph-popis { font-size: 15px; }
+  .ph-pozadi img { opacity: 0.2; }
+}

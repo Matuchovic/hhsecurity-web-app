@@ -75,6 +75,16 @@
   .proces-krok { margin: 0; }
   .proces-sipka { display: none; }
 }
+@media (max-width: 768px) {
+  .proces-hlava { margin-bottom: 40px; }
+  .proces-krok { padding: 26px 20px; }
+  .proces-cislo { font-size: 32px; }
+  .proces-nazev { font-size: 16px; }
+  .proces-popis { font-size: 13px; }
+}
 @media (max-width: 480px) {
-  .proces-kroky { grid-template-columns: 1fr; }
+  .proces-kroky { grid-template-columns: 1fr; gap: 14px; }
+  .proces-krok { padding: 24px 20px; }
+  .proces-nazev { font-size: 17px; }
+  .proces-popis { font-size: 14px; }
 }

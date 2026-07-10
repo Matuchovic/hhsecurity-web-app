@@ -171,17 +171,42 @@
 
 /* Responzivita */
 @media (max-width: 1024px) {
-  .hero-pozadi img { width: 100%; opacity: 0.5; }
+  .hero-pozadi img { width: 100%; opacity: 0.42; object-position: center; }
   .hero-preliv {
-    background: linear-gradient(180deg, rgba(10,14,26,0.7) 0%, rgba(10,14,26,0.85) 100%);
+    background: linear-gradient(180deg, rgba(10,14,26,0.72) 0%, rgba(10,14,26,0.88) 100%);
   }
   .hero-karta { display: none; }
   .hero-staty { max-width: 100%; }
+  .hero-text { max-width: 100%; }
 }
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding-top: 74px; }
+  .hero-vnitrek { padding-top: 48px; padding-bottom: 48px; }
+  .hero-nadpis { font-size: clamp(30px, 8vw, 44px); margin-bottom: 18px; }
+  .hero-popis { font-size: 16px; margin-bottom: 28px; }
+  .hero-tlacitka { margin-bottom: 44px; }
+  .hero-staty { gap: 20px; }
+  .hero-stat-cislo { font-size: 20px; }
+}
+
 @media (max-width: 640px) {
-  .hero-nadpis { font-size: 34px; }
-  .hero-tlacitka { flex-direction: column; }
-  .hero-tlacitka .btn { width: 100%; justify-content: center; }
-  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .hero-vnitrek { padding-top: 40px; padding-bottom: 40px; }
+  .hero-nadpis { font-size: 32px; line-height: 1.1; margin-bottom: 16px; }
+  .hero-popis { font-size: 15px; margin-bottom: 26px; }
   .hero-popis br { display: none; }
+  .hero-tlacitka { flex-direction: column; gap: 12px; margin-bottom: 40px; }
+  .hero-tlacitka .btn { width: 100%; justify-content: center; }
+  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 18px 16px; }
+  .hero-stat { gap: 10px; }
+  .hero-stat-ikona { width: 40px; height: 40px; }
+  .hero-stat-cislo { font-size: 19px; }
+  .hero-stat-popis { font-size: 11px; }
+}
+
+@media (max-width: 360px) {
+  .hero-nadpis { font-size: 28px; }
+  .hero-staty { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
+  .hero-stat-ikona { width: 36px; height: 36px; }
+  .hero-stat-cislo { font-size: 17px; }
 }

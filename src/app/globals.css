@@ -131,6 +131,42 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
 .sekce-nadpis { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
 .sekce-popis { color: var(--text-tlumeny); font-size: 17px; max-width: 560px; }
 
+/* ============================================================
+   MOBILNÍ RESPONZIVITA — globální základ
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .obsah { padding: 0 20px; }
+  .sekce { padding: 80px 0; }
+}
+
+/* Menší tablet / velký mobil */
+@media (max-width: 768px) {
+  .obsah { padding: 0 18px; }
+  .sekce { padding: 64px 0; }
+  .sekce-nadpis { font-size: clamp(24px, 6vw, 32px); }
+  .sekce-popis { font-size: 15px; }
+  .btn { padding: 12px 22px; font-size: 14px; }
+  .eyebrow { font-size: 12px; margin-bottom: 12px; }
+}
+
+/* Mobil */
+@media (max-width: 480px) {
+  .obsah { padding: 0 16px; }
+  .sekce { padding: 52px 0; }
+  .sekce-nadpis { font-size: 24px; line-height: 1.2; }
+  .sekce-popis { font-size: 14px; }
+  .btn { padding: 12px 20px; font-size: 14px; width: auto; }
+  h1, h2, h3 { letter-spacing: -0.01em; }
+}
+
+/* Malý mobil */
+@media (max-width: 360px) {
+  .obsah { padding: 0 14px; }
+  .sekce-nadpis { font-size: 22px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }

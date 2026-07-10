@@ -187,9 +187,16 @@
   .kr-vyhody-mrizka { grid-template-columns: repeat(2, 1fr); }
   .kr-form-mrizka { grid-template-columns: 1fr; gap: 40px; }
 }
+@media (max-width: 768px) {
+  .kr-vyhody, .kr-pozice, .kr-form-sekce { padding: 64px 0; }
+  .kr-hlava { margin-bottom: 36px; }
+  .kr-pozice-hlava h3 { font-size: 18px; }
+  .kr-pozice-karta { padding: 24px; }
+}
 @media (max-width: 480px) {
   .kr-vyhody-mrizka { grid-template-columns: 1fr; }
   .kr-radek { grid-template-columns: 1fr; }
-  .kr-pozice-karta { flex-direction: column; gap: 16px; }
+  .kr-pozice-karta { flex-direction: column; gap: 16px; padding: 22px; }
+  .kr-pozice-hlava { flex-direction: column; align-items: flex-start; gap: 8px; }
   .kr-form { padding: 24px; }
 }
